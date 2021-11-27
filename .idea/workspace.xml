@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="" />
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +39,35 @@
       <option name="presentableId" value="Default" />
       <updated>1638009736162</updated>
     </task>
+    <task id="LOCAL−00001" summary="idea stuff">
+      <created>1638010053613</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1638010053613</updated>
+    </task>
+    <task id="LOCAL−00002" summary="setup project">
+      <created>1638010172934</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1638010172934</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="idea stuff" />
+    <MESSAGE value="setup project" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup project" />
   </component>
 </project>
