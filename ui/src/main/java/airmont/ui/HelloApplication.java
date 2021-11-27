@@ -1,4 +1,4 @@
-package tomluk.ui;
+package airmont.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
