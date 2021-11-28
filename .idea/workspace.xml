@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/SomeApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/SomeApi.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main/java/tomluk/ui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main/java/tomluk/ui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main/resources/tomluk/ui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/resources/airmont/ui/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +24,7 @@
       <list>
         <option value="module-info" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -54,13 +51,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="17" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/core/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ui" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/src/test/java" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java projects\Airmont\core\src\test\java" />
       <recent name="E:\Java projects\Airmont\ui" />
       <recent name="E:\Java projects\Airmont\core" />
     </key>
@@ -68,11 +68,44 @@
       <recent name="E:\Java projects\Airmont\ui\target" />
       <recent name="E:\Java projects\Airmont\ui\src\main" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="tomluk.core" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="airmont.core" />
+    </key>
   </component>
-  <component name="RunManager" selected="Maven.Airmont:jlink">
+  <component name="RunManager" selected="Maven.Airmont:test">
+    <configuration name="Airmont:build" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="Airmont:jlink" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -129,7 +162,7 @@
         <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean package install" />
       </method>
     </configuration>
-    <configuration name="build" type="MavenRunConfiguration" factoryName="Maven">
+    <configuration name="Airmont:test" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -141,8 +174,7 @@
             <option name="goals">
               <list>
                 <option value="clean" />
-                <option value="package" />
-                <option value="install" />
+                <option value="test" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -157,7 +189,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.build" />
+      <item itemvalue="Maven.Airmont:test" />
+      <item itemvalue="Maven.Airmont:build" />
       <item itemvalue="Maven.Airmont:jlink" />
       <item itemvalue="Maven.Airmont:run" />
     </list>
@@ -201,7 +234,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1638012470772</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="setup project">
+      <created>1638031777873</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1638031777873</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
