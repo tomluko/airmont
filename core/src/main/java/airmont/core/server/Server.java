@@ -25,7 +25,6 @@ public class Server {
     public void start() throws Exception {
         server = HttpServer.create(new InetSocketAddress(port), 0);
         endpoints.forEach(endpoint -> server.createContext(endpoint.getEndpoint(), endpoint));
-        server.setExecutor(null); // creates a default executor
         server.start();
     }
 

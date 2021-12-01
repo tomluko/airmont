@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-\    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/EmptyFileDownloadCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Endpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileExtension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +263,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1638103920240</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="working on file download api - add resume download functionality&#10;extract server code from tests">
+      <created>1638395461666</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1638395461666</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +287,8 @@
     <MESSAGE value="idea stuff" />
     <MESSAGE value="setup project" />
     <MESSAGE value="working on file download api" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on file download api" />
+    <MESSAGE value="working on file download api - add resume download functionality&#10;extract server code from tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on file download api - add resume download functionality&#10;extract server code from tests" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
