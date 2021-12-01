@@ -12,6 +12,7 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileDownloaderTest extends DownloadFileTestCase {
 
@@ -19,7 +20,29 @@ public class FileDownloaderTest extends DownloadFileTestCase {
     public void downloadFileAtOnce() throws Exception {
         URL url = getWebUrl();
         Path tmp = createTmpFile();
-        FileDownloader.download(url, tmp);
+        SpyCallback spyCallback = new SpyCallback();
+        new FileDownloader().download(url, tmp, spyCallback);
+        assertEquals("134444444444444444444444444444444444444444444444444444444444444444444444444444444446", spyCallback.methodsCalled);
+        assertArrayEquals(MD5(getActualFile()), MD5(tmp));
+    }
+
+    @Test
+    public void resumeDownload() throws Exception {
+        URL url = getWebUrl();
+        Path tmp = createTmpFile();
+        FileDownloader fileDownloader = new FileDownloader();
+        SpyCallback spyCallback = new SpyCallback() {
+            @Override
+            public void read(int bytesRead) {
+                super.read(bytesRead);
+                fileDownloader.stop();
+            }
+        };
+        fileDownloader.download(url, tmp, spyCallback);
+        assertEquals("1346", spyCallback.methodsCalled);
+        spyCallback = new SpyCallback();
+        new FileDownloader().download(url, tmp, spyCallback);
+        assertEquals("13444444444444444444444444444444444444444444444444444444444444444444444444444444446", spyCallback.methodsCalled);
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
     }
 
@@ -36,4 +59,41 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         }
         return md5.digest();
     }
+
+    private static class SpyCallback implements FileDownloadCallback {
+
+        private String methodsCalled = "";
+
+        @Override
+        public void before(URL url, Path destinationFile) {
+            methodsCalled += "1";
+        }
+
+        @Override
+        public void start() {
+            methodsCalled += "2";
+        }
+
+        @Override
+        public void resume() {
+            methodsCalled += "3";
+        }
+
+        @Override
+        public void read(int bytesRead) {
+            methodsCalled += "4";
+        }
+
+        @Override
+        public void exception(Exception e) {
+            methodsCalled += "5";
+            e.printStackTrace();
+        }
+
+        @Override
+        public void finish(boolean stop) {
+            methodsCalled += "6";
+        }
+    }
+
 }

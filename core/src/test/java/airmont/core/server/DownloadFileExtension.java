@@ -19,7 +19,8 @@ public class DownloadFileExtension implements BeforeAllCallback, AfterAllCallbac
         DownloadFile downloadFile = getDownloadFileAnnotation(extensionContext);
         if (downloadFile != null) {
             URI uri = Objects.requireNonNull(DownloadFileExtension.class.getClassLoader().getResource(downloadFile.file())).toURI();
-            FileServer server = new FileServer(Paths.get(uri), downloadFile.port());
+            Server server = new Server(downloadFile.port());
+            server.add(new FileUploadEndpoint(Paths.get(uri)));
             server.start();
             storeServer(extensionContext, server);
         }
@@ -29,19 +30,19 @@ public class DownloadFileExtension implements BeforeAllCallback, AfterAllCallbac
     public void afterAll(ExtensionContext extensionContext) {
         DownloadFile downloadFile = getDownloadFileAnnotation(extensionContext);
         if (downloadFile != null) {
-            FileServer server = getServer(extensionContext);
+            Server server = getServer(extensionContext);
             if (server != null) {
                 server.stop();
             }
         }
     }
 
-    private void storeServer(ExtensionContext extensionContext, FileServer server) {
+    private void storeServer(ExtensionContext extensionContext, Server server) {
         extensionContext.getStore(NAMESPACE).put(SERVER, server);
     }
 
-    private FileServer getServer(ExtensionContext extensionContext) {
-        return (FileServer) extensionContext.getStore(NAMESPACE).get(SERVER);
+    private Server getServer(ExtensionContext extensionContext) {
+        return (Server) extensionContext.getStore(NAMESPACE).get(SERVER);
     }
 
     private DownloadFile getDownloadFileAnnotation(ExtensionContext extensionContext) {
