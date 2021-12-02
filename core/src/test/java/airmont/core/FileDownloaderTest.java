@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +24,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         Path tmp = createTmpFile();
         SpyCallback spyCallback = new SpyCallback();
         new FileDownloader().download(url, tmp, spyCallback);
-        assertEquals("134444444444444444444444444444444444444444444444444444444444444444444444444444444446", spyCallback.methodsCalled);
+        assertEquals("134444444444444444444446", spyCallback.methodsCalled);
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
     }
 
@@ -42,7 +44,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         assertEquals("1346", spyCallback.methodsCalled);
         spyCallback = new SpyCallback();
         new FileDownloader().download(url, tmp, spyCallback);
-        assertEquals("13444444444444444444444444444444444444444444444444444444444444444444444444444444446", spyCallback.methodsCalled);
+        assertEquals("13444444444444444444446", spyCallback.methodsCalled);
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
     }
 
@@ -70,12 +72,12 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         }
 
         @Override
-        public void start() {
+        public void start(Map<String, List<String>> headerFields) {
             methodsCalled += "2";
         }
 
         @Override
-        public void resume() {
+        public void resume(long fileSizeInBytes, Map<String, List<String>> headerFields) {
             methodsCalled += "3";
         }
 

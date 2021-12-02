@@ -2,6 +2,8 @@ package airmont.core;
 
 import java.net.URL;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Map;
 
 public interface FileDownloadCallback {
 
@@ -13,12 +15,12 @@ public interface FileDownloadCallback {
     /**
      * file does not exist, start new download
      */
-    void start();
+    void start(Map<String, List<String>> headerFields);
 
     /**
      * file exists, resume download
      */
-    void resume();
+    void resume(long fileSizeInBytes, Map<String, List<String>> headerFields);
 
     /**
      * one read iteration complete with given amount of bytes

@@ -11,7 +11,7 @@ import java.nio.file.StandardOpenOption;
 
 public class FileDownloader {
 
-    private static final int DATA_BUFFER_SIZE = 1024;
+    private static final int DATA_BUFFER_SIZE = 4096;
     private final byte[] dataBuffer;
 
     private volatile boolean stop = false;
@@ -35,9 +35,9 @@ public class FileDownloader {
         URLConnection connection = url.openConnection();
         if (Files.exists(destinationFile)) {
             addResumeRequestProperty(destinationFile, connection);
-            callback.resume();
+            callback.resume(Files.size(destinationFile), connection.getHeaderFields());
         } else {
-            callback.start();
+            callback.start(connection.getHeaderFields());
         }
         try (BufferedInputStream in = createBufferedInputStream(connection);
              BufferedOutputStream out = createBufferedOutputStream(destinationFile)) {
