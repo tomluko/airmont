@@ -51,7 +51,7 @@ class FileUploadEndpoint extends Endpoint {
 
     private static int getFileOffset(Headers requestHeaders) {
         List<String> ranges = requestHeaders.get("Range");
-        if (ranges.size() == 1) {
+        if (ranges != null && ranges.size() == 1) {
             String range = ranges.get(0);
             return Integer.parseInt(range.substring("bytes=".length(), range.indexOf("-")));
         }

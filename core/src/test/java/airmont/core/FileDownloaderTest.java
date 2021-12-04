@@ -24,7 +24,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         Path tmp = createTmpFile();
         SpyCallback spyCallback = new SpyCallback();
         new FileDownloader().download(url, tmp, spyCallback);
-        assertEquals("134444444444444444444446", spyCallback.methodsCalled);
+        assertEquals("124444444444444444444446", spyCallback.methodsCalled);
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
     }
 
@@ -41,7 +41,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
             }
         };
         fileDownloader.download(url, tmp, spyCallback);
-        assertEquals("1346", spyCallback.methodsCalled);
+        assertEquals("1246", spyCallback.methodsCalled);
         spyCallback = new SpyCallback();
         new FileDownloader().download(url, tmp, spyCallback);
         assertEquals("13444444444444444444446", spyCallback.methodsCalled);
