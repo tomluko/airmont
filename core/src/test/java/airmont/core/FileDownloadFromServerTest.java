@@ -7,10 +7,10 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+@Disabled
 public class FileDownloadFromServerTest {
 
     @Test
-    @Disabled
     void download() throws Exception {
         URL url = new URL("https", "<host>", "/<file>");
         Path file = Files.createTempFile("downloadTest", "rar");
