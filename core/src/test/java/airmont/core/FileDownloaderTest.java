@@ -93,7 +93,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         }
 
         @Override
-        public void finish(boolean stop) {
+        public void finish(boolean stopped) {
             methodsCalled += "6";
         }
     }

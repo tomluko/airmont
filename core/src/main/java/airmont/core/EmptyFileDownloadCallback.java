@@ -32,7 +32,7 @@ class EmptyFileDownloadCallback implements FileDownloadCallback {
     }
 
     @Override
-    public void finish(boolean stop) {
+    public void finish(boolean stopped) {
         // do nothing
     }
 }

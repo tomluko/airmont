@@ -53,7 +53,7 @@ public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
     }
 
     @Override
-    public void finish(boolean stop) {
+    public void finish(boolean stopped) {
         long millis = System.currentTimeMillis() - startTime;
         tracker.finish(millis);
     }

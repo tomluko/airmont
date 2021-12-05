@@ -35,7 +35,7 @@ public interface FileDownloadCallback {
     /**
      * download process is done
      *
-     * @param stop true if download was stopped, false if completed
+     * @param stopped true if download was stopped, false if completed
      */
-    void finish(boolean stop);
+    void finish(boolean stopped);
 }

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/EmptyFileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/EmptyFileDownloadCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +309,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1638699379321</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="refactor">
+      <created>1638699618819</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1638699618819</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,7 +337,8 @@
     <MESSAGE value="remove call that does nothing" />
     <MESSAGE value="working on downloader" />
     <MESSAGE value="working on settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on settings" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
