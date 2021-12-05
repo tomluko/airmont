@@ -32,20 +32,24 @@ class FileUploadEndpoint extends Endpoint {
         int offset = getFileOffset(requestHeaders);
         try (OutputStream out = httpExchange.getResponseBody()) {
             if (Files.exists(file)) {
-                if (offset > 0) {
-                    byte[] allBytes = Files.readAllBytes(file);
-                    byte[] bytes = Arrays.copyOfRange(allBytes, offset, allBytes.length);
-                    httpExchange.sendResponseHeaders(206, bytes.length);
-                    out.write(bytes);
-                } else {
-                    httpExchange.sendResponseHeaders(200, Files.size(file));
-                    out.write(Files.readAllBytes(file));
-                }
+                serveFile(httpExchange, offset, out);
             } else {
                 System.err.println("File not found: " + file.toAbsolutePath());
                 httpExchange.sendResponseHeaders(404, 0);
                 out.write("404 File not found.".getBytes());
             }
+        }
+    }
+
+    private void serveFile(HttpExchange httpExchange, int offset, OutputStream out) throws IOException {
+        if (offset > 0) {
+            byte[] allBytes = Files.readAllBytes(file);
+            byte[] bytes = Arrays.copyOfRange(allBytes, offset, allBytes.length);
+            httpExchange.sendResponseHeaders(206, bytes.length);
+            out.write(bytes);
+        } else {
+            httpExchange.sendResponseHeaders(200, Files.size(file));
+            out.write(Files.readAllBytes(file));
         }
     }
 

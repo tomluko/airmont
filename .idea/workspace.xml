@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/resources/airmont.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/settings/SettingsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +300,13 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1638656934021</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="working on settings">
+      <created>1638699379321</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1638699379321</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -325,7 +327,8 @@
     <MESSAGE value="working on file download api - add resume download functionality&#10;extract server code from tests" />
     <MESSAGE value="remove call that does nothing" />
     <MESSAGE value="working on downloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on downloader" />
+    <MESSAGE value="working on settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on settings" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
