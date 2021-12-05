@@ -4,10 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <application.version>1.0-SNAPSHOT</application.version>
+        <application.mainClass>airmont.ui/airmont.ui.HelloApplication</application.mainClass>
         <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <juint.version>5.8.2</juint.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,18 +22,36 @@
     <artifactId>airmont</artifactId>
     <name>airmont</name>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${application.version}</version>
 
     <modules>
         <module>core</module>
         <module>ui</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>airmont.core</groupId>
+                <artifactId>core</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>airmont.core</groupId>
+                <artifactId>core</artifactId>
+                <classifier>tests</classifier>
+                <type>test-jar</type>
+                <version>${application.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.1</version>
+            <version>${juint.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -37,7 +62,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -48,7 +73,32 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+
+            <!--resolves variables everywhere-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
