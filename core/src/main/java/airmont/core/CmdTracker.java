@@ -12,14 +12,14 @@ public class CmdTracker implements TimeAndSizeTracker {
     }
 
     @Override
-    public void start(long startingSize, long fullSize, long startingTime) {
-        System.out.println("Starting size: " + format(bytesToKilobytes(startingSize)) + " KB");
-        System.out.println("Full size: " + format(bytesToKilobytes(fullSize)) + " KB");
+    public void start(long startingSizeInBytes, long fullSizeInBytes, long startingTime) {
+        System.out.println("Starting size: " + format(bytesToKilobytes(startingSizeInBytes)) + " KB");
+        System.out.println("Full size: " + format(bytesToKilobytes(fullSizeInBytes)) + " KB");
     }
 
     @Override
-    public void step(long bytes, long time) {
-        System.out.println("Speed: " + format(bytesToKilobytes(bytes) / millisToSeconds(time)) + " KB/s");
+    public void step(long bytesRead, long time) {
+        System.out.println("Speed: " + format(bytesToKilobytes(bytesRead) / millisToSeconds(time)) + " KB/s");
     }
 
     @Override

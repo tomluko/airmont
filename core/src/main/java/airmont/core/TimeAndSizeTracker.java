@@ -2,17 +2,17 @@ package airmont.core;
 
 public interface TimeAndSizeTracker {
     /**
-     * @param startingSize in bytes
-     * @param fullSize     in bytes
-     * @param startingTime in millis
+     * @param startingSizeInBytes in bytes
+     * @param fullSizeInBytes     in bytes
+     * @param startingTime        in millis
      */
-    void start(long startingSize, long fullSize, long startingTime);
+    void start(long startingSizeInBytes, long fullSizeInBytes, long startingTime);
 
     /**
-     * @param bytes in bytes
-     * @param time  in millis
+     * @param bytesRead in bytes
+     * @param time      in millis
      */
-    void step(long bytes, long time);
+    void step(long bytesRead, long time);
 
     /**
      * @param duration in millis
