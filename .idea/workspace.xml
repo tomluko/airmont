@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/CmdTracker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTracker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/UnexpectedResponseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/resources/airmont.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/settings/SettingsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +20,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -95,6 +91,7 @@
       <recent name="airmont.core.FileDownloader" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="airmont.core.settings" />
       <recent name="airmont.core" />
       <recent name="airmont.core.server" />
       <recent name="tomluk.core" />
@@ -103,10 +100,11 @@
       <recent name="airmont.core" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="airmont.core.settings" />
       <recent name="airmont.core" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Airmont:test">
+  <component name="RunManager" selected="Maven.Airmont:build">
     <configuration name="Airmont:build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -300,7 +298,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1638480723849</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="working on downloader">
+      <created>1638656934021</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1638656934021</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
