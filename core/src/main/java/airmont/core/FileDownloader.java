@@ -8,12 +8,15 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
+import java.util.Map;
 
 public class FileDownloader {
 
-    private static final int EXPECTED_RESUME_DOWNLOAD_RESPONSE_CODE = 206;
-    private static final int EXPECTED_START_DOWNLOAD_RESPONSE_CODE = 200;
+    private static final int EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD = 206;
+    private static final int EXPECTED_RESPONSE_CODE_START_DOWNLOAD = 200;
 
     private static final int DATA_BUFFER_SIZE = 4096;
     private final byte[] dataBuffer;
@@ -28,25 +31,37 @@ public class FileDownloader {
      * @param url http, https url
      * @throws IOException if fails to start the download
      */
-    public void download(URL url, Path destinationFile) throws IOException {
-        download(url, destinationFile, new EmptyFileDownloadCallback());
+    public Path download(URL url, Path destinationFile) throws IOException {
+        return download(url, destinationFile, new EmptyFileDownloadCallback());
     }
 
     /**
-     * @param url http, https url
+     * @param url         http, https url
+     * @param destination where to save bytes or dir to create new file
      * @throws IOException if fails to start the download
      */
-    public void download(URL url, Path destinationFile, FileDownloadCallback callback) throws IOException {
-        callback.before(url, destinationFile);
+    public Path download(URL url, Path destination, FileDownloadCallback callback) throws IOException {
+        callback.before(url, destination);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        long fileSize = getFileSize(destinationFile);
+        Path destinationFile;
+        long fileSize = getFileSize(destination);
         if (fileSize > 0) {
             addResumeRequestProperty(connection, fileSize);
-            verifyResponseCode(connection, EXPECTED_RESUME_DOWNLOAD_RESPONSE_CODE);
+            verifyResponseCode(connection, EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD);
             callback.resume(fileSize, connection.getHeaderFields());
+            destinationFile = destination;
         } else {
-            verifyResponseCode(connection, EXPECTED_START_DOWNLOAD_RESPONSE_CODE);
-            callback.start(connection.getHeaderFields());
+            verifyResponseCode(connection, EXPECTED_RESPONSE_CODE_START_DOWNLOAD);
+            Map<String, List<String>> headerFields = connection.getHeaderFields();
+            callback.start(headerFields);
+            if (Files.isDirectory(destination)) {
+                destinationFile = Paths.get(destination.toAbsolutePath().toString(), getFileName(url, headerFields).toString());
+                if (!Files.exists(destinationFile)) {
+                    Files.createFile(destinationFile);
+                }
+            } else {
+                destinationFile = destination;
+            }
         }
         try (BufferedInputStream in = createBufferedInputStream(connection);
              BufferedOutputStream out = createBufferedOutputStream(destinationFile)) {
@@ -56,10 +71,40 @@ public class FileDownloader {
         } finally {
             callback.finish(stop);
         }
+        return destinationFile;
+    }
+
+    private Path getFileName(URL url, Map<String, List<String>> headerFields) {
+        String fileName = null;
+        List<String> contentDisposition = headerFields.get("Content-Disposition");
+        if (contentDisposition != null && !contentDisposition.isEmpty()) {
+            String cd = contentDisposition.get(0);
+            String[] attributes = cd.split(";");
+            for (String attribute : attributes) {
+                if (attribute.toLowerCase().contains("filename")) {
+                    try {
+                        fileName = attribute.substring(attribute.indexOf('\"') + 1, attribute.lastIndexOf('\"'));
+                    } catch (Exception e) {
+                        fileName = attribute.substring(attribute.indexOf('=') + 1);
+                    }
+                }
+            }
+        }
+        if (fileName == null) {
+            String file = url.getFile();
+            int lastSlash = file.lastIndexOf("/");
+            if (lastSlash > -1) {
+                fileName = file.substring(lastSlash);
+            }
+        }
+        if (fileName == null) {
+            fileName = "unknownFile" + System.currentTimeMillis();
+        }
+        return Paths.get(fileName);
     }
 
     private static long getFileSize(Path file) throws IOException {
-        return Files.exists(file) ?
+        return Files.exists(file) && !Files.isDirectory(file) ?
                 Files.size(file) :
                 0;
     }

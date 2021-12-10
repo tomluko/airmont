@@ -48,6 +48,27 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
     }
 
+    @Test
+    public void resumeDownloadCreateFile() throws Exception {
+        URL url = getWebUrl();
+        Path tmpDir = createTmpFile().getParent();
+        FileDownloader fileDownloader = new FileDownloader();
+        SpyCallback spyCallback = new SpyCallback() {
+            @Override
+            public void read(int bytesRead) {
+                super.read(bytesRead);
+                fileDownloader.stop();
+            }
+        };
+        Path tmp = fileDownloader.download(url, tmpDir, spyCallback);
+        tmp.toFile().deleteOnExit();
+        assertEquals("1246", spyCallback.methodsCalled);
+        spyCallback = new SpyCallback();
+        new FileDownloader().download(url, tmp, spyCallback);
+        assertEquals("13444444444444444444446", spyCallback.methodsCalled);
+        assertArrayEquals(MD5(getActualFile()), MD5(tmp));
+    }
+
     private Path createTmpFile() throws IOException {
         Path tmp = Files.createTempFile("tmp", "");
         tmp.toFile().deleteOnExit();
