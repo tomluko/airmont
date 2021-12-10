@@ -75,32 +75,48 @@ public class FileDownloader {
     }
 
     private Path getFileName(URL url, Map<String, List<String>> headerFields) {
-        String fileName = null;
+        String fileName;
+        fileName = getFileNameFromContentDisposition(headerFields);
+        if (fileName == null) {
+            fileName = getFileNameFromUrl(url);
+        }
+        if (fileName == null) {
+            fileName = createFileName();
+        }
+        return Paths.get(fileName);
+    }
+
+    private String getFileNameFromContentDisposition(Map<String, List<String>> headerFields) {
         List<String> contentDisposition = headerFields.get("Content-Disposition");
-        if (contentDisposition != null && !contentDisposition.isEmpty()) {
-            String cd = contentDisposition.get(0);
+        if (contentDisposition == null || contentDisposition.isEmpty()) {
+            return null;
+        }
+        for (String cd : contentDisposition) {
             String[] attributes = cd.split(";");
             for (String attribute : attributes) {
                 if (attribute.toLowerCase().contains("filename")) {
                     try {
-                        fileName = attribute.substring(attribute.indexOf('\"') + 1, attribute.lastIndexOf('\"'));
+                        return attribute.substring(attribute.indexOf('\"') + 1, attribute.lastIndexOf('\"'));
                     } catch (Exception e) {
-                        fileName = attribute.substring(attribute.indexOf('=') + 1);
+                        return attribute.substring(attribute.indexOf('=') + 1);
                     }
                 }
             }
         }
-        if (fileName == null) {
-            String file = url.getFile();
-            int lastSlash = file.lastIndexOf("/");
-            if (lastSlash > -1) {
-                fileName = file.substring(lastSlash);
-            }
+        return null;
+    }
+
+    private String getFileNameFromUrl(URL url) {
+        String file = url.getFile();
+        int lastSlash = file.lastIndexOf("/");
+        if (lastSlash > -1) {
+            return file.substring(lastSlash);
         }
-        if (fileName == null) {
-            fileName = "unknownFile" + System.currentTimeMillis();
-        }
-        return Paths.get(fileName);
+        return null;
+    }
+
+    private String createFileName() {
+        return "unknownFile" + System.currentTimeMillis();
     }
 
     private static long getFileSize(Path file) throws IOException {

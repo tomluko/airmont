@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,7 +340,13 @@
       <option name="presentableId" value="LOCAL−00018" />
       <updated>1638705503584</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL−00019" summary="working on downloader">
+      <created>1639175803055</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1639175803055</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -373,13 +376,13 @@
     <MESSAGE value="working on file download api" />
     <MESSAGE value="working on file download api - add resume download functionality&#10;extract server code from tests" />
     <MESSAGE value="remove call that does nothing" />
-    <MESSAGE value="working on downloader" />
     <MESSAGE value="working on settings" />
     <MESSAGE value="refactor" />
     <MESSAGE value="naming" />
     <MESSAGE value="improve pompilation" />
     <MESSAGE value="disable test class" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable test class" />
+    <MESSAGE value="working on downloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on downloader" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
