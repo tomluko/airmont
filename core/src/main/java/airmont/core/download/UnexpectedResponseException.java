@@ -1,4 +1,4 @@
-package airmont.core;
+package airmont.core.download;
 
 import java.io.IOException;
 

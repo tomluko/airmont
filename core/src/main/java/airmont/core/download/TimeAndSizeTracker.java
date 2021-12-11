@@ -1,4 +1,4 @@
-package airmont.core;
+package airmont.core.download;
 
 public interface TimeAndSizeTracker {
     /**

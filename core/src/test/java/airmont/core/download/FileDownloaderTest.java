@@ -1,4 +1,4 @@
-package airmont.core;
+package airmont.core.download;
 
 import airmont.core.server.DownloadFileTestCase;
 import org.junit.jupiter.api.Test;
