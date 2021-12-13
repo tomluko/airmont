@@ -19,7 +19,7 @@ public class DownloadServerTest {
             String expectedDownloadUrl = "https://some.file.com";
             URL url = new URL("http", "localhost", DownloadServerFactory.PORT, DownloadEndpoint.DOWNLOAD + "?" + DownloadEndpoint.URL + "=" + expectedDownloadUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            assertEquals(200, connection.getResponseCode());
+            assertEquals(DownloadEndpoint.RESPONSE_CODE_URL_OK, connection.getResponseCode());
             connection.disconnect();
             Thread.sleep(200);
             assertTrue(urlSpy.downloadCalled);

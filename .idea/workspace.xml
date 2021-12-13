@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="working on downloader">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadServerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
-    </list>
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -374,7 +363,13 @@
       <option name="presentableId" value="LOCAL−00022" />
       <updated>1639431286928</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL−00023" summary="working on download server">
+      <created>1639431871900</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1639431871900</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -410,7 +405,8 @@
     <MESSAGE value="improve pompilation" />
     <MESSAGE value="disable test class" />
     <MESSAGE value="working on downloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on downloader" />
+    <MESSAGE value="working on download server" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on download server" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

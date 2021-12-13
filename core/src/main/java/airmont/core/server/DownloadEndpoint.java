@@ -7,7 +7,10 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-class DownloadEndpoint extends Endpoint {
+public class DownloadEndpoint extends Endpoint {
+
+    static final int RESPONSE_CODE_NO_URL = 404;
+    static final int RESPONSE_CODE_URL_OK = 200;
 
     static final String DOWNLOAD = "/download";
     static final String URL = "url";
@@ -24,10 +27,10 @@ class DownloadEndpoint extends Endpoint {
         Map<String, String> params = getParameters(exchange.getRequestURI().getQuery());
         String url = params.get(URL);
         if (url == null) {
-            exchange.sendResponseHeaders(404, 0);
+            exchange.sendResponseHeaders(RESPONSE_CODE_NO_URL, 0);
             return;
         }
-        exchange.sendResponseHeaders(200, 0);
+        exchange.sendResponseHeaders(RESPONSE_CODE_URL_OK, 0);
         downloadHandler.download(new URL(url));
     }
 
