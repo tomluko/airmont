@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="working on downloader">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadServerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadServerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/CmdTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/CmdTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/EmptyFileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloadCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/UnexpectedResponseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/UnexpectedResponseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloadFromServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +27,8 @@
         <option value="module-info" />
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -98,12 +97,14 @@
       <recent name="airmont.core.FileDownloader" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="airmont.core.download" />
       <recent name="airmont.core.settings" />
       <recent name="airmont.core" />
       <recent name="airmont.core.server" />
       <recent name="tomluk.core" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="airmont.core.server" />
       <recent name="airmont.core" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -361,7 +362,19 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1639176271815</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="working on downloader">
+      <created>1639215657517</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1639215657517</updated>
+    </task>
+    <task id="LOCAL−00022" summary="working on downloader">
+      <created>1639431286928</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1639431286928</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

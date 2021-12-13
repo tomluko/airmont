@@ -13,6 +13,7 @@ public class Settings {
     private static final String PROPERTIES_FILE_NAME = "airmont.properties";
 
     private static final String PROPERTY_DOWNLOAD_DIR = "PROPERTY_DOWNLOAD_DIR";
+    private static final String PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT = "PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT";
 
     private final Properties properties;
     private final Path propertiesDir;
@@ -80,5 +81,18 @@ public class Settings {
 
     public void setDownloadDir(Path downloadDir) {
         properties.put(PROPERTY_DOWNLOAD_DIR, downloadDir.toString());
+    }
+
+    public int getSimultaneousDownloadsCount() {
+        String count = properties.getProperty(PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT);
+        try {
+            return Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            return Runtime.getRuntime().availableProcessors();
+        }
+    }
+
+    public void setSimultaneousDownloadsCount(int count) {
+        properties.put(PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT, count);
     }
 }

@@ -15,7 +15,7 @@ public class DownloadFileTestCase {
 
     protected static URL getWebUrl() {
         try {
-            return new URL("http", "localhost", 32581, FileUploadEndpoint.DOWNLOAD);
+            return new URL("http", "localhost", 32581, FileUploadEndpoint.UPLOAD);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

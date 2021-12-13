@@ -28,11 +28,12 @@ public class FileDownloader {
     }
 
     /**
-     * @param url http, https url
+     * @param url         http, https url
+     * @param destination where to save bytes or dir to create new file
      * @throws IOException if fails to start the download
      */
-    public Path download(URL url, Path destinationFile) throws IOException {
-        return download(url, destinationFile, new EmptyFileDownloadCallback());
+    public Path download(URL url, Path destination) throws IOException {
+        return download(url, destination, new EmptyFileDownloadCallback());
     }
 
     /**
