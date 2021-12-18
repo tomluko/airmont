@@ -12,13 +12,13 @@ public class DownloadEndpoint extends Endpoint {
     static final int RESPONSE_CODE_NO_URL = 404;
     static final int RESPONSE_CODE_URL_OK = 200;
 
-    static final String DOWNLOAD = "/download";
+    static final String ENDPOINT = "/download";
     static final String URL = "url";
 
     private final DownloadHandler downloadHandler;
 
     public DownloadEndpoint(DownloadHandler downloadHandler) {
-        super(DOWNLOAD);
+        super(ENDPOINT);
         this.downloadHandler = downloadHandler;
     }
 

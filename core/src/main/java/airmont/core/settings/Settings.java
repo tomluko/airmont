@@ -14,6 +14,7 @@ public class Settings {
 
     private static final String PROPERTY_DOWNLOAD_DIR = "PROPERTY_DOWNLOAD_DIR";
     private static final String PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT = "PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT";
+    private static final String PROPERTY_SERVER_PORT = "PROPERTY_SERVER_PORT";
 
     private final Properties properties;
     private final Path propertiesDir;
@@ -94,5 +95,17 @@ public class Settings {
 
     public void setSimultaneousDownloadsCount(int count) {
         properties.put(PROPERTY_SIMULTANEOUS_DOWNLOADS_COUNT, count);
+    }
+
+    public int getServerPort() {
+        try {
+            return Integer.parseInt(properties.getProperty(PROPERTY_SERVER_PORT));
+        } catch (NumberFormatException e) {
+            return 32582;
+        }
+    }
+
+    public void setServerPort(int port) {
+        properties.put(PROPERTY_SERVER_PORT, Integer.toString(port));
     }
 }

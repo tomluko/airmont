@@ -1,5 +1,6 @@
 package airmont.core.download;
 
+import airmont.core.connection.UrlConnectionHeader;
 import airmont.core.server.DownloadFileTestCase;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
-import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -93,12 +92,12 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         }
 
         @Override
-        public void start(Map<String, List<String>> headerFields) {
+        public void start(UrlConnectionHeader header) {
             methodsCalled += "2";
         }
 
         @Override
-        public void resume(long fileSizeInBytes, Map<String, List<String>> headerFields) {
+        public void resume(long fileSizeInBytes, UrlConnectionHeader header) {
             methodsCalled += "3";
         }
 

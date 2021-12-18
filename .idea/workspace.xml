@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="" />
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/AutoClosableHttpURLConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/Connections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/UrlConnectionHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/SimultaneousDownloads.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/MultiFileDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloadCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/UnexpectedResponseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/UnexpectedResponseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadServerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadServers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/settings/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/airmont.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/resources/airmont.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/FileUploadEndpoint.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,16 +102,18 @@
       <recent name="" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="airmont.core.UrlConnectionHeader" />
+      <recent name="airmont.core.AutoClosableHttpURLConnection" />
       <recent name="airmont.core.server.FileUploadEndpoint" />
       <recent name="airmont.core.server.DownloadFileTestCase" />
       <recent name="airmont.core.FileDownloader" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="airmont.core.connection" />
       <recent name="airmont.core.download" />
       <recent name="airmont.core.settings" />
       <recent name="airmont.core" />
       <recent name="airmont.core.server" />
-      <recent name="tomluk.core" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="airmont.core.server" />
@@ -101,7 +124,7 @@
       <recent name="airmont.core" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Airmont:test">
+  <component name="RunManager" selected="Maven.Airmont:jlink">
     <configuration name="Airmont:build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -369,7 +392,13 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1639431871900</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="working on download server">
+      <created>1639432743773</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1639432743773</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

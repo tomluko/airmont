@@ -1,9 +1,9 @@
 package airmont.core.download;
 
+import airmont.core.connection.UrlConnectionHeader;
+
 import java.net.URL;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.Map;
 
 public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
 
@@ -24,17 +24,17 @@ public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
     }
 
     @Override
-    public void start(Map<String, List<String>> headerFields) {
+    public void start(UrlConnectionHeader header) {
         startTime = System.currentTimeMillis();
         lastTime = startTime;
-        tracker.start(0, getFullFileSize(headerFields), startTime);
+        tracker.start(0, header.getFileSize(), startTime);
     }
 
     @Override
-    public void resume(long fileSizeInBytes, Map<String, List<String>> headerFields) {
+    public void resume(long fileSizeInBytes, UrlConnectionHeader header) {
         startTime = System.currentTimeMillis();
         lastTime = startTime;
-        tracker.start(fileSizeInBytes, getFullFileSize(headerFields), startTime);
+        tracker.start(fileSizeInBytes, header.getFileSize(), startTime);
     }
 
     @Override
@@ -59,14 +59,5 @@ public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
     public void finish(boolean stopped) {
         long millis = System.currentTimeMillis() - startTime;
         tracker.finish(millis);
-    }
-
-    private long getFullFileSize(Map<String, List<String>> headerFields) {
-        List<String> fullFileSizes = headerFields.get("Content-Length");
-        if (fullFileSizes == null || fullFileSizes.isEmpty()) {
-            return 0;
-        }
-        String fullFileSizeText = fullFileSizes.get(0);
-        return Long.parseLong(fullFileSizeText);
     }
 }

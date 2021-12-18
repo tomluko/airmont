@@ -1,21 +1,18 @@
-package airmont.core;
+package airmont.core.download;
 
-import airmont.core.download.FileDownloadCallback;
-import airmont.core.download.FileDownloader;
+import airmont.core.connection.UrlConnectionHeader;
 
 import java.net.URL;
 import java.nio.file.Path;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.*;
 
-public class SimultaneousDownloads {
+public class MultiFileDownloader {
 
     private final ExecutorService executorService;
     private final LinkedList<DownloadTask> tasks;
 
-    public SimultaneousDownloads(int threadCount) {
+    public MultiFileDownloader(int threadCount) {
         executorService = Executors.newFixedThreadPool(threadCount);
         tasks = new LinkedList<>();
     }
@@ -96,13 +93,13 @@ public class SimultaneousDownloads {
         }
 
         @Override
-        public void start(Map<String, List<String>> headerFields) {
-            delegate.start(headerFields);
+        public void start(UrlConnectionHeader header) {
+            delegate.start(header);
         }
 
         @Override
-        public void resume(long fileSizeInBytes, Map<String, List<String>> headerFields) {
-            delegate.resume(fileSizeInBytes, headerFields);
+        public void resume(long fileSizeInBytes, UrlConnectionHeader header) {
+            delegate.resume(fileSizeInBytes, header);
         }
 
         @Override

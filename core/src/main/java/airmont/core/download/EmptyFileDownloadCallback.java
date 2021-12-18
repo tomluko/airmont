@@ -1,9 +1,9 @@
 package airmont.core.download;
 
+import airmont.core.connection.UrlConnectionHeader;
+
 import java.net.URL;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.Map;
 
 class EmptyFileDownloadCallback implements FileDownloadCallback {
     @Override
@@ -12,12 +12,12 @@ class EmptyFileDownloadCallback implements FileDownloadCallback {
     }
 
     @Override
-    public void start(Map<String, List<String>> headerFields) {
+    public void start(UrlConnectionHeader header) {
         // do nothing
     }
 
     @Override
-    public void resume(long fileSizeInBytes, Map<String, List<String>> headerFields) {
+    public void resume(long fileSizeInBytes, UrlConnectionHeader header) {
         // do nothing
     }
 

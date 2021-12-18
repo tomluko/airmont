@@ -1,22 +1,19 @@
 package airmont.core.download;
 
+import airmont.core.connection.AutoClosableHttpURLConnection;
+import airmont.core.connection.Connections;
+import airmont.core.connection.UrlConnectionHeader;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.List;
-import java.util.Map;
 
 public class FileDownloader {
-
-    private static final int EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD = 206;
-    private static final int EXPECTED_RESPONSE_CODE_START_DOWNLOAD = 200;
 
     private static final int DATA_BUFFER_SIZE = 4096;
     private final byte[] dataBuffer;
@@ -43,20 +40,20 @@ public class FileDownloader {
      */
     public Path download(URL url, Path destination, FileDownloadCallback callback) throws IOException {
         callback.before(url, destination);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        AutoClosableHttpURLConnection connection = Connections.create(url);
         Path destinationFile;
         long fileSize = getFileSize(destination);
         if (fileSize > 0) {
-            addResumeRequestProperty(connection, fileSize);
-            verifyResponseCode(connection, EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD);
+            connection.addResumeRequestProperty(fileSize);
+            connection.verifyResponseCode(AutoClosableHttpURLConnection.EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD);
             callback.resume(fileSize, connection.getHeaderFields());
             destinationFile = destination;
         } else {
-            verifyResponseCode(connection, EXPECTED_RESPONSE_CODE_START_DOWNLOAD);
-            Map<String, List<String>> headerFields = connection.getHeaderFields();
-            callback.start(headerFields);
+            connection.verifyResponseCode(AutoClosableHttpURLConnection.EXPECTED_RESPONSE_CODE_START_DOWNLOAD);
+            UrlConnectionHeader header = connection.getHeaderFields();
+            callback.start(header);
             if (Files.isDirectory(destination)) {
-                destinationFile = Paths.get(destination.toAbsolutePath().toString(), getFileName(url, headerFields).toString());
+                destinationFile = Paths.get(destination.toAbsolutePath().toString(), getFileName(url, header).toString());
                 if (!Files.exists(destinationFile)) {
                     Files.createFile(destinationFile);
                 }
@@ -64,7 +61,7 @@ public class FileDownloader {
                 destinationFile = destination;
             }
         }
-        try (BufferedInputStream in = createBufferedInputStream(connection);
+        try (BufferedInputStream in = connection.createBufferedInputStream();
              BufferedOutputStream out = createBufferedOutputStream(destinationFile)) {
             copy(callback, in, out);
         } catch (Exception e) {
@@ -75,9 +72,9 @@ public class FileDownloader {
         return destinationFile;
     }
 
-    private Path getFileName(URL url, Map<String, List<String>> headerFields) {
+    private Path getFileName(URL url, UrlConnectionHeader header) {
         String fileName;
-        fileName = getFileNameFromContentDisposition(headerFields);
+        fileName = header.getFileName();
         if (fileName == null) {
             fileName = getFileNameFromUrl(url);
         }
@@ -85,26 +82,6 @@ public class FileDownloader {
             fileName = createFileName();
         }
         return Paths.get(fileName);
-    }
-
-    private String getFileNameFromContentDisposition(Map<String, List<String>> headerFields) {
-        List<String> contentDisposition = headerFields.get("Content-Disposition");
-        if (contentDisposition == null || contentDisposition.isEmpty()) {
-            return null;
-        }
-        for (String cd : contentDisposition) {
-            String[] attributes = cd.split(";");
-            for (String attribute : attributes) {
-                if (attribute.toLowerCase().contains("filename")) {
-                    try {
-                        return attribute.substring(attribute.indexOf('\"') + 1, attribute.lastIndexOf('\"'));
-                    } catch (Exception e) {
-                        return attribute.substring(attribute.indexOf('=') + 1);
-                    }
-                }
-            }
-        }
-        return null;
     }
 
     private String getFileNameFromUrl(URL url) {
@@ -126,13 +103,6 @@ public class FileDownloader {
                 0;
     }
 
-    private static void verifyResponseCode(HttpURLConnection connection, int expectedResponseCode) throws IOException {
-        int responseCode = connection.getResponseCode();
-        if (responseCode != expectedResponseCode) {
-            throw new UnexpectedResponseException(responseCode, expectedResponseCode);
-        }
-    }
-
     private void copy(FileDownloadCallback callback, BufferedInputStream in, BufferedOutputStream out) throws IOException {
         int bytesRead;
         while ((bytesRead = in.read(dataBuffer, 0, DATA_BUFFER_SIZE)) != -1 && !stop) {
@@ -143,14 +113,6 @@ public class FileDownloader {
 
     public void stop() {
         stop = true;
-    }
-
-    private static void addResumeRequestProperty(URLConnection connection, long offset) {
-        connection.setRequestProperty("Range", "bytes=" + offset + "-");
-    }
-
-    private static BufferedInputStream createBufferedInputStream(URLConnection connection) throws IOException {
-        return new BufferedInputStream(connection.getInputStream());
     }
 
     private static BufferedOutputStream createBufferedOutputStream(Path destinationFile) throws IOException {

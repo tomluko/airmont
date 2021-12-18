@@ -12,12 +12,12 @@ import java.util.List;
 
 class FileUploadEndpoint extends Endpoint {
 
-    static final String UPLOAD = "/upload";
+    static final String ENDPOINT = "/upload";
 
     private final Path file;
 
     public FileUploadEndpoint(Path file) {
-        super(UPLOAD);
+        super(ENDPOINT);
         if (!Files.exists(file)) {
             throw new IllegalArgumentException("File does not exist " + file);
         }
