@@ -27,7 +27,7 @@ public class AutoClosableHttpURLConnection implements AutoCloseable {
         return connection.getResponseCode();
     }
 
-    public UrlConnectionHeader getHeaderFields() {
+    public UrlConnectionHeader getHeader() {
         return new UrlConnectionHeader(connection.getHeaderFields());
     }
 

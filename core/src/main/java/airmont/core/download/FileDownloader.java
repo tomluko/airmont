@@ -3,6 +3,8 @@ package airmont.core.download;
 import airmont.core.connection.AutoClosableHttpURLConnection;
 import airmont.core.connection.Connections;
 import airmont.core.connection.UrlConnectionHeader;
+import airmont.core.downloadtarget.DownloadTarget;
+import airmont.core.downloadtarget.DownloadTargetMetaInformation;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,7 +13,6 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class FileDownloader {
 
@@ -41,35 +42,37 @@ public class FileDownloader {
     public Path download(URL url, Path destination, FileDownloadCallback callback) throws IOException {
         callback.before(url, destination);
         AutoClosableHttpURLConnection connection = Connections.create(url);
-        Path destinationFile;
-        long fileSize = getFileSize(destination);
+        DownloadTargetMetaInformation metaInformation = new DownloadTargetMetaInformation().setUrl(url);
+        long fileSize = DownloadTarget.getFileSize(destination);
         if (fileSize > 0) {
             connection.addResumeRequestProperty(fileSize);
             connection.verifyResponseCode(AutoClosableHttpURLConnection.EXPECTED_RESPONSE_CODE_RESUME_DOWNLOAD);
-            callback.resume(fileSize, connection.getHeaderFields());
-            destinationFile = destination;
+            UrlConnectionHeader header = connection.getHeader();
+            callback.resume(fileSize, header);
+            metaInformation
+                    .setMetaInfo(header.toString())
+                    .setDestinationFile(destination);
         } else {
             connection.verifyResponseCode(AutoClosableHttpURLConnection.EXPECTED_RESPONSE_CODE_START_DOWNLOAD);
-            UrlConnectionHeader header = connection.getHeaderFields();
+            UrlConnectionHeader header = connection.getHeader();
             callback.start(header);
-            if (Files.isDirectory(destination)) {
-                destinationFile = Paths.get(destination.toAbsolutePath().toString(), getFileName(url, header).toString());
-                if (!Files.exists(destinationFile)) {
-                    Files.createFile(destinationFile);
-                }
-            } else {
-                destinationFile = destination;
-            }
+            Path destinationFile = Files.isDirectory(destination) ?
+                    Paths.get(destination.toAbsolutePath().toString(), getFileName(url, header).toString()) :
+                    destination;
+            metaInformation
+                    .setMetaInfo(header.toString())
+                    .setDestinationFile(destinationFile);
         }
+        DownloadTarget downloadTarget = new DownloadTarget(metaInformation);
         try (BufferedInputStream in = connection.createBufferedInputStream();
-             BufferedOutputStream out = createBufferedOutputStream(destinationFile)) {
+             BufferedOutputStream out = downloadTarget.createBufferedOutputStream()) {
             copy(callback, in, out);
         } catch (Exception e) {
             callback.exception(e);
         } finally {
             callback.finish(stop);
         }
-        return destinationFile;
+        return metaInformation.getDestinationFile();
     }
 
     private Path getFileName(URL url, UrlConnectionHeader header) {
@@ -94,13 +97,7 @@ public class FileDownloader {
     }
 
     private String createFileName() {
-        return "unknownFile" + System.currentTimeMillis();
-    }
-
-    private static long getFileSize(Path file) throws IOException {
-        return Files.exists(file) && !Files.isDirectory(file) ?
-                Files.size(file) :
-                0;
+        return "download" + System.currentTimeMillis();
     }
 
     private void copy(FileDownloadCallback callback, BufferedInputStream in, BufferedOutputStream out) throws IOException {
@@ -115,7 +112,4 @@ public class FileDownloader {
         stop = true;
     }
 
-    private static BufferedOutputStream createBufferedOutputStream(Path destinationFile) throws IOException {
-        return new BufferedOutputStream(Files.newOutputStream(destinationFile, StandardOpenOption.CREATE, StandardOpenOption.APPEND));
-    }
 }

@@ -1,12 +1,18 @@
 package airmont.core.connection;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public record UrlConnectionHeader(Map<String, List<String>> headerFields) {
 
     private static final String HEADER_ENTRY_CONTENT_LENGTH = "Content-Length";
     private static final String HEADER_ENTRY_CONTENT_DISPOSITION = "Content-Disposition";
+
+    public UrlConnectionHeader(Map<String, List<String>> headerFields) {
+        this.headerFields = new HashMap<>(headerFields);
+    }
 
     public String getFileName() {
         String contentDisposition = getEntry(headerFields, HEADER_ENTRY_CONTENT_DISPOSITION);
@@ -38,4 +44,12 @@ public record UrlConnectionHeader(Map<String, List<String>> headerFields) {
         }
         return fullFileSizes.get(0);
     }
+
+    @Override
+    public String toString() {
+        return headerFields.entrySet().stream()
+                .map(entry -> entry.getKey() + " = " + String.join(", ", entry.getValue()))
+                .collect(Collectors.joining("\n"));
+    }
+
 }

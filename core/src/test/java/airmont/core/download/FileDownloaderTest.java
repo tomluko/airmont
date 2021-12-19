@@ -5,7 +5,6 @@ import airmont.core.server.DownloadFileTestCase;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,7 +19,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
     @Test
     public void downloadFileAtOnce() throws Exception {
         URL url = getWebUrl();
-        Path tmp = createTmpFile();
+        Path tmp = createTempFile();
         SpyCallback spyCallback = new SpyCallback();
         new FileDownloader().download(url, tmp, spyCallback);
         assertEquals("124444444444444444444446", spyCallback.methodsCalled);
@@ -30,7 +29,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
     @Test
     public void resumeDownload() throws Exception {
         URL url = getWebUrl();
-        Path tmp = createTmpFile();
+        Path tmp = createTempFile();
         FileDownloader fileDownloader = new FileDownloader();
         SpyCallback spyCallback = new SpyCallback() {
             @Override
@@ -50,7 +49,7 @@ public class FileDownloaderTest extends DownloadFileTestCase {
     @Test
     public void resumeDownloadCreateFile() throws Exception {
         URL url = getWebUrl();
-        Path tmpDir = createTmpFile().getParent();
+        Path tmpDir = getTempDir();
         FileDownloader fileDownloader = new FileDownloader();
         SpyCallback spyCallback = new SpyCallback() {
             @Override
@@ -66,12 +65,6 @@ public class FileDownloaderTest extends DownloadFileTestCase {
         new FileDownloader().download(url, tmp, spyCallback);
         assertEquals("13444444444444444444446", spyCallback.methodsCalled);
         assertArrayEquals(MD5(getActualFile()), MD5(tmp));
-    }
-
-    private Path createTmpFile() throws IOException {
-        Path tmp = Files.createTempFile("tmp", "");
-        tmp.toFile().deleteOnExit();
-        return tmp;
     }
 
     private static byte[] MD5(Path path) throws Exception {

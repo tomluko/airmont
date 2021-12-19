@@ -1,5 +1,6 @@
 package airmont.core.server;
 
+import airmont.core.TempFileTestCase;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.net.MalformedURLException;
@@ -11,7 +12,7 @@ import java.util.Objects;
 
 @ExtendWith(DownloadFileExtension.class)
 @DownloadFile(port = 32581, file = "file.png")
-public class DownloadFileTestCase {
+public class DownloadFileTestCase extends TempFileTestCase {
 
     protected static URL getWebUrl() {
         try {
