@@ -12,8 +12,8 @@ public class DownloadEndpoint extends Endpoint {
     static final int RESPONSE_CODE_NO_URL = 404;
     static final int RESPONSE_CODE_URL_OK = 200;
 
-    static final String ENDPOINT = "/download";
-    static final String URL = "url";
+    public static final String ENDPOINT = "/download";
+    public static final String URL = "url";
 
     private final DownloadHandler downloadHandler;
 

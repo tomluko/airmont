@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTarget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTargetMetaInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/TempFileTestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/downloadtarget/DownloadTargetMetaInformationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/downloadtarget/DownloadTargetTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/Airmont.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/CombinedFileDownloadCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/LoggingFileDownloadCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/AutoClosableHttpURLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/AutoClosableHttpURLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/UrlConnectionHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/connection/UrlConnectionHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/CmdTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/LoggingTimeAndSizeTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/airmont/core/server/DownloadFileTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTarget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTargetMetaInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTargetMetaInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +65,9 @@
     </option>
   </component>
   <component name="ProjectId" id="21Uy0R7Wu2TpSfllBYH4pyj59pt" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -116,7 +123,14 @@
       <recent name="airmont.core.settings" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Airmont:test">
+  <component name="RunManager" selected="Application.Airmont:core:run">
+    <configuration name="Airmont:core:run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="airmont.core.Airmont" />
+      <module name="ui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Airmont:build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -230,6 +244,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Airmont:run" />
+      <item itemvalue="Application.Airmont:core:run" />
       <item itemvalue="JUnit.Airmont:test" />
       <item itemvalue="Maven.Airmont:test" />
       <item itemvalue="Maven.Airmont:build" />
@@ -396,7 +411,13 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1639793850659</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="working on downloader">
+      <created>1639913201437</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1639913201437</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -430,10 +451,10 @@
     <MESSAGE value="naming" />
     <MESSAGE value="improve pompilation" />
     <MESSAGE value="disable test class" />
-    <MESSAGE value="working on downloader" />
     <MESSAGE value="working on download server" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="working on downloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on downloader" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

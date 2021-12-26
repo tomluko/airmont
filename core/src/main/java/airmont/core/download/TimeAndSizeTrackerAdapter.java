@@ -14,7 +14,7 @@ public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
     private long bytes = 0;
     private long time;
 
-    TimeAndSizeTrackerAdapter(TimeAndSizeTracker tracker) {
+    public TimeAndSizeTrackerAdapter(TimeAndSizeTracker tracker) {
         this.tracker = tracker;
     }
 
@@ -43,7 +43,7 @@ public class TimeAndSizeTrackerAdapter implements FileDownloadCallback {
         bytes += bytesRead;
         time += currentTime - lastTime;
         lastTime = currentTime;
-        if (time >= 1000) {
+        if (time >= tracker.getStepInterval()) {
             tracker.step(bytes, time);
             bytes = 0;
             time = 0;

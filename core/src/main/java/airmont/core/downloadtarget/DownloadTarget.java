@@ -6,12 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-public final class DownloadTarget {
-
-    private final DownloadTargetMetaInformation parameters;
+public record DownloadTarget(DownloadTargetMetaInformation parameters) {
 
     public static List<DownloadTarget> findAll(Path dir) {
         return DownloadTargetMetaInformation.findAll(dir).stream()
@@ -63,16 +60,7 @@ public final class DownloadTarget {
                 0;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DownloadTarget that = (DownloadTarget) o;
-        return Objects.equals(parameters, that.parameters);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(parameters);
+    public DownloadTargetMetaInformation getParameters() {
+        return parameters;
     }
 }

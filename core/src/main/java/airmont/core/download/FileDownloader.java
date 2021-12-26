@@ -71,6 +71,9 @@ public class FileDownloader {
             callback.exception(e);
         } finally {
             callback.finish(stop);
+            if (!stop) {
+                downloadTarget.getParameters().deleteFile();
+            }
         }
         return metaInformation.getDestinationFile();
     }

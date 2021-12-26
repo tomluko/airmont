@@ -96,6 +96,15 @@ public final class DownloadTargetMetaInformation {
         }
     }
 
+    public void deleteFile() {
+        Path metaInformationFile = getFile();
+        try {
+            Files.deleteIfExists(metaInformationFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Path getFile() {
         return getFile(destinationFile);
     }

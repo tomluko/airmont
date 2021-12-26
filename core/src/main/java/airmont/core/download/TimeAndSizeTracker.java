@@ -18,4 +18,9 @@ public interface TimeAndSizeTracker {
      * @param duration in millis
      */
     void finish(long duration);
+
+    /**
+     * @return interval in ms, how often step method is called
+     */
+    int getStepInterval();
 }

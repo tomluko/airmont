@@ -5,34 +5,39 @@ import airmont.core.connection.UrlConnectionHeader;
 import java.net.URL;
 import java.nio.file.Path;
 
-public class EmptyFileDownloadCallback implements FileDownloadCallback {
+public record LoggingFileDownloadCallback(Logger logger) implements FileDownloadCallback {
+
     @Override
     public void before(URL url, Path destinationFile) {
-        // do nothing
+        logger.out("Url: " + url.toString());
+        logger.out("Destination file: " + destinationFile.toString());
     }
 
     @Override
     public void start(UrlConnectionHeader header) {
-        // do nothing
+        logger.out("Starting ...");
+        logger.out("Header: " + header.toString().replace("\n", ";"));
     }
 
     @Override
     public void resume(long fileSizeInBytes, UrlConnectionHeader header) {
-        // do nothing
+        logger.out("Resuming ...");
+        logger.out("Header: " + header.toString().replace("\n", ";"));
     }
 
     @Override
     public void read(int bytesRead) {
-        // do nothing
+        // not very interesting
     }
 
     @Override
     public void exception(Exception e) {
-        // do nothing
+        logger.err(e);
     }
 
     @Override
     public void finish(boolean stopped) {
-        // do nothing
+        logger.out("Finishing ...");
+        logger.out("Was Stopped: " + stopped);
     }
 }

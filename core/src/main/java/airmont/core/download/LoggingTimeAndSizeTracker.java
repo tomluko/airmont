@@ -2,7 +2,7 @@ package airmont.core.download;
 
 import java.text.DecimalFormat;
 
-public class CmdTracker implements TimeAndSizeTracker {
+public record LoggingTimeAndSizeTracker(Logger logger) implements TimeAndSizeTracker {
 
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat();
 
@@ -13,18 +13,23 @@ public class CmdTracker implements TimeAndSizeTracker {
 
     @Override
     public void start(long startingSizeInBytes, long fullSizeInBytes, long startingTime) {
-        System.out.println("Starting size: " + format(bytesToKilobytes(startingSizeInBytes)) + " KB");
-        System.out.println("Full size: " + format(bytesToKilobytes(fullSizeInBytes)) + " KB");
+        logger.out("Starting size: " + format(bytesToKilobytes(startingSizeInBytes)) + " KB");
+        logger.out("Full size: " + format(bytesToKilobytes(fullSizeInBytes)) + " KB");
     }
 
     @Override
     public void step(long bytesRead, long time) {
-        System.out.println("Speed: " + format(bytesToKilobytes(bytesRead) / millisToSeconds(time)) + " KB/s");
+        logger.out("Speed: " + format(bytesToKilobytes(bytesRead) / millisToSeconds(time)) + " KB/s");
     }
 
     @Override
     public void finish(long duration) {
-        System.out.println("Download took: " + format(millisToSeconds(duration)) + " s to complete");
+        logger.out("Download took: " + format(millisToSeconds(duration)) + " s to complete");
+    }
+
+    @Override
+    public int getStepInterval() {
+        return 10000;
     }
 
     private double bytesToKilobytes(double bytes) {
