@@ -84,5 +84,8 @@ public class FileDownloadManager {
         logger.out("Stopping all downloads ...");
         downloader.stopAllDownloads();
         logger.out("All downloads are stopped");
+        logger.out("Saving settings ...");
+        settings.save();
+        logger.out("Settings saved");
     }
 }

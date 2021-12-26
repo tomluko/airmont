@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/Airmont.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/CombinedFileDownloadCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/LoggingFileDownloadCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/CmdTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/LoggingTimeAndSizeTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/EmptyFileDownloadCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/TimeAndSizeTrackerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTarget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTargetMetaInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/downloadtarget/DownloadTargetMetaInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/server/DownloadEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/airmont/core/download/FileDownloadFromServerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -417,7 +403,13 @@
       <option name="presentableId" value="LOCAL−00026" />
       <updated>1639913201437</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL−00027" summary="working on download manager">
+      <created>1640514669958</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1640514669958</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -454,7 +446,8 @@
     <MESSAGE value="working on download server" />
     <MESSAGE value="refactor" />
     <MESSAGE value="working on downloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on downloader" />
+    <MESSAGE value="working on download manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on download manager" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
