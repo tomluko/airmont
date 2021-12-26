@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/FileDownloadManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <recent name="airmont.core.settings" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Airmont:core:run">
+  <component name="RunManager" selected="Application.Airmont:run">
     <configuration name="Airmont:core:run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="airmont.core.Airmont" />
       <module name="ui" />
@@ -409,7 +409,13 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1640514669958</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="working on download manager">
+      <created>1640515189788</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1640515189788</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

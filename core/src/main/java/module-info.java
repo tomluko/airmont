@@ -4,4 +4,5 @@ module airmont.core {
     exports airmont.core.settings;
     exports airmont.core.download;
     exports airmont.core.connection;
+    exports airmont.core;
 }
