@@ -105,9 +105,13 @@ public class FileDownloader {
 
     private void copy(FileDownloadCallback callback, BufferedInputStream in, BufferedOutputStream out) throws IOException {
         int bytesRead;
-        while ((bytesRead = in.read(dataBuffer, 0, DATA_BUFFER_SIZE)) != -1 && !stop) {
-            out.write(dataBuffer, 0, bytesRead);
-            callback.read(bytesRead);
+        try {
+            while ((bytesRead = in.read(dataBuffer, 0, DATA_BUFFER_SIZE)) != -1 && !stop) {
+                out.write(dataBuffer, 0, bytesRead);
+                callback.read(bytesRead);
+            }
+        } finally {
+            out.flush();
         }
     }
 

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main/java/airmont/ui/HelloApplication.java" afterDir="false" />
+    <list default="true" id="e81cd520-3a18-49e2-be67-a10ca1fec798" name="Changes" comment="working on download manager">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/airmont/core/download/FileDownloader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <recent name="airmont.core.settings" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Airmont:run">
+  <component name="RunManager" selected="JUnit.Airmont:test">
     <configuration name="Airmont:core:run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="airmont.core.Airmont" />
       <module name="ui" />
@@ -415,7 +415,13 @@
       <option name="presentableId" value="LOCAL−00028" />
       <updated>1640515189788</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL−00029" summary="working on download manager">
+      <created>1640515984683</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1640515984683</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
