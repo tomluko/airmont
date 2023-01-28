@@ -6,7 +6,7 @@
     <properties>
         <application.version>1.0-SNAPSHOT</application.version>
         <application.mainClass>airmont.ui/airmont.ui.HelloApplication</application.mainClass>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
